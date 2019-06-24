@@ -1,3 +1,4 @@
+
 //Body2.java
 
 import java.awt.*;
@@ -8,10 +9,10 @@ import java.io.*;
 import java.net.*;
 
 public class Body2 extends JPanel {
-	static final int PORT=3012;
+	static final int PORT = 3011;
 	Socket myClient;
-	BufferedReader is=null;
-	DataOutputStream os=null;
+	BufferedReader is = null;
+	DataOutputStream os = null;
 	private JButton button;
 	private JButton map1, map2, map3, map4;
 	private static JTextArea log;
@@ -27,48 +28,23 @@ public class Body2 extends JPanel {
 	static boolean judge4 = true;
 	static int current_gold = 0, current_exp = 0;
 	static int current_item1 = 0, current_item2 = 0, current_item3 = 0, current_item4 = 0;
+	static int total_gold=0, total_exp=0, total_item1=0, total_item2=0, total_item3=0, total_item4=0; 
 	private ImageIcon img;
 
 	public Body2(PictureChange temp) throws ClassNotFoundException {
 		try {
+			myClient = new Socket("localhost", PORT);
+			is = new BufferedReader(new InputStreamReader(myClient.getInputStream()));
+			os = new DataOutputStream(myClient.getOutputStream());
 
-			myClient=new Socket("localhost", PORT);
-			
-			File file=new File("gamedata.txt");
-			FileReader fr=new FileReader(file);
-			
-			
-			int reply_gold = (int)fr.read();
-			int reply_exp = (int)fr.read();
-			int reply_Item1 = (int)fr.read();
-			int reply_Item2 = (int)fr.read();
-			int reply_Item3 =(int)fr.read();
-			int reply_Item4 = (int)fr.read();
-			
-			System.out.print(reply_gold);
-			System.out.print("\n");
-			System.out.print(reply_exp);
-			System.out.print("\n");
-			System.out.print(reply_Item1);
-			System.out.print("\n");
-			System.out.print(reply_Item2);
-			System.out.print("\n");
-			System.out.print(reply_Item3);
-			System.out.print("\n");
-			System.out.print(reply_Item4);
-			
-			fr.close();
 		} catch (UnknownHostException uhe) {
 			uhe.printStackTrace();
 		} catch (IOException error) {
 			error.printStackTrace();
-		} 
+		}
 		setLayout(null);
 		ch = temp;
 
-		
-		
-		
 		setPreferredSize(new Dimension(800, 700));
 		img = new ImageIcon("C:/Users/MELEE/eclipse-workspace/TP/src/TP/Background2.gif");
 
@@ -99,61 +75,57 @@ public class Body2 extends JPanel {
 		getitem.setFont(new Font("Serif", Font.BOLD, 15));
 		add(getitem);
 
-		item1 = new JLabel("Item1 : 0");
+		item1 = new JLabel("Item1 : ");
 		item1.setBounds(500, 150, 100, 30);
 		item1.setForeground(Color.cyan); // ID 글자색(핑크)
 		item1.setFont(new Font("Serif", Font.BOLD, 15));
 		add(item1);
 
-		item2 = new JLabel("Item2 : 0");
+		item2 = new JLabel("Item2 : ");
 		item2.setBounds(500, 200, 100, 30);
 		item2.setForeground(Color.cyan); // ID 글자색(핑크)
 		item2.setFont(new Font("Serif", Font.BOLD, 15));
 		add(item2);
 
-		item3 = new JLabel("Item3 : 0");
+		item3 = new JLabel("Item3 : ");
 		item3.setBounds(500, 250, 100, 30);
 		item3.setForeground(Color.cyan); // ID 글자색(핑크)
 		item3.setFont(new Font("Serif", Font.BOLD, 15));
 		add(item3);
 
-		item4 = new JLabel("Item4 : 0");
+		item4 = new JLabel("Item4 : ");
 		item4.setBounds(500, 300, 100, 30);
 		item4.setForeground(Color.cyan); // ID 글자색(핑크)
 		item4.setFont(new Font("Serif", Font.BOLD, 15));
 		add(item4);
-		ImageIcon normalIcon = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/gameover.gif");	
+
 		button = new JButton("게임종료");
-		button.setSize(250, 90);
-		button.setLocation(250, 550);
+		button.setSize(150, 75);
+		button.setLocation(300, 600);
 		button.addActionListener(new ChangeListener());
 		add(button);
 
-		ImageIcon normalIcon1 = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/num1.png");
 		map1 = new JButton("맵1");
-		map1.setSize(80, 60);
+		map1.setSize(70, 50);
 		map1.setLocation(500, 350);
 		map1.addActionListener(new Map1Listener());
 		add(map1);
 
-		ImageIcon normalIcon2 = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/num2.png");
 		map2 = new JButton("맵2");
-		map2.setSize(80, 60);
-		map2.setLocation(650, 350);
+		map2.setSize(70, 50);
+		map2.setLocation(600, 350);
 		map2.addActionListener(new Map2Listener());
 		add(map2);
 
-		ImageIcon normalIcon3 = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/num3.png");
 		map3 = new JButton("맵3");
-		map3.setSize(80, 60);
+		map3.setSize(70, 50);
 		map3.setLocation(500, 450);
 		map3.addActionListener(new Map3Listener());
 		add(map3);
 
-		ImageIcon normalIcon4 = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/num4.png");
 		map4 = new JButton("맵4");
-		map4.setSize(80, 60);
-		map4.setLocation(650, 450);
+		map4.setSize(70, 50);
+		map4.setLocation(600, 450);
 		map4.addActionListener(new Map4Listener());
 		add(map4);
 	}
@@ -170,28 +142,73 @@ public class Body2 extends JPanel {
 
 	private class ChangeListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			ch.change("picture1");
-			map1.setEnabled(true);
-			map2.setEnabled(true);
-			map3.setEnabled(true);
-			map4.setEnabled(true);
-			log.setText(null);
-			judge1 = false;
-			judge2 = false;
-			judge3 = false;
-			judge4 = false;
-			gold.setText("골드 : 0");
-			exp.setText("경험치 : 0");
-			item1.setText("Item1 : 0");
-			item2.setText("Item2 : 0");
-			item3.setText("Item3 : 0");
-			item4.setText("Item4 : 0");
-			current_gold = 0;
-			current_exp = 0;
-			current_item1 = 0;
-			current_item2 = 0;
-			current_item3 = 0;
-			current_item4 = 0;
+
+			try {
+
+				os.writeBytes("" + (Body1.reply_id) + "\n");
+				os.writeBytes("" + (Body1.reply_pw) + "\n");
+				System.out.println(Body1.reply_id);
+				
+				String gold_DB=is.readLine();
+				String exp_DB=is.readLine();
+				String Item1_DB=is.readLine();
+				String Item2_DB=is.readLine();
+				String Item3_DB=is.readLine();
+				String Item4_DB=is.readLine();
+				
+				System.out.println(gold_DB);
+				
+				
+				int gold_DB_conv=Integer.parseInt(gold_DB);
+				int exp_DB_conv=Integer.parseInt(exp_DB);
+				int Item1_DB_conv=Integer.parseInt(Item1_DB);
+				int Item2_DB_conv=Integer.parseInt(Item2_DB);
+				int Item3_DB_conv=Integer.parseInt(Item3_DB);
+				int Item4_DB_conv=Integer.parseInt(Item4_DB);
+				
+				total_gold=gold_DB_conv+current_gold;
+				total_exp=exp_DB_conv+current_exp;
+				total_item1=Item1_DB_conv+current_item1;
+				total_item2=Item2_DB_conv+current_item2;
+				total_item3=Item3_DB_conv+current_item3;
+				total_item4=Item4_DB_conv+current_item4;
+				
+				os.writeBytes("" + (total_gold) + "\n");
+				os.writeBytes("" + (total_exp) + "\n");
+				os.writeBytes("" + (total_item1) + "\n");
+				os.writeBytes("" + (total_item2) + "\n");
+				os.writeBytes("" + (total_item3) + "\n");
+				os.writeBytes("" + (total_item4) + "\n");
+				
+				ch.change("picture1");
+				map1.setEnabled(true);
+				map2.setEnabled(true);
+				map3.setEnabled(true);
+				map4.setEnabled(true);
+				log.setText(null);
+				judge1 = false;
+				judge2 = false;
+				judge3 = false;
+				judge4 = false;
+				gold.setText("골드 : "+total_gold);
+				exp.setText("경험치 : "+total_exp);
+				item1.setText("Item1 : "+total_item1);
+				item2.setText("Item2 : "+total_item2);
+				item3.setText("Item3 : ");
+				item4.setText("Item4 : ");
+				current_gold = total_gold;
+				current_exp = total_exp;
+				current_item1 = 0;
+				current_item2 = 0;
+				current_item3 = 0;
+				current_item4 = 0;
+			} catch (UnknownHostException uhe) {
+				uhe.printStackTrace();
+			} catch (IOException error) {
+				error.printStackTrace();
+			}
+
+			
 		}
 	}
 
