@@ -27,7 +27,6 @@ class Server {
 		Socket serviceClient = null;
 		BufferedReader is = null;
 		DataOutputStream os = null;
-		FileWriter fw = null;
 
 
 		
@@ -39,14 +38,11 @@ class Server {
 			myService = new ServerSocket(PORT);
 			System.out.println("Server running at " + PORT);
 			serviceClient = myService.accept();
-			System.out.println("Ŭ���̾�Ʈ on");
+			System.out.println("클라이언트 on");
 
 			is = new BufferedReader(new InputStreamReader(serviceClient.getInputStream()));
 			os = new DataOutputStream(serviceClient.getOutputStream());
-			File file=new File("gamedata.txt");
-			fw = new FileWriter(file, true);
 
-			
 			String id = is.readLine();
 			String pw = is.readLine();
 
@@ -63,34 +59,26 @@ class Server {
 					Item2_DB=rs.getInt("Item2");
 					Item3_DB=rs.getInt("Item3");
 					Item4_DB=rs.getInt("Item4");
+					
 				}
 			}
-			System.out.println(id_DB);
-			System.out.println(pw_DB);
+//			System.out.println(id_DB);
+//			System.out.println(pw_DB);
 
 			os.writeBytes("" + (id_DB) + "\n");
 			os.writeBytes("" + (pw_DB) + "\n");
+			os.writeBytes("" + (gold_DB) + "\n");
+			os.writeBytes("" + (exp_DB) + "\n");
+			os.writeBytes("" + (Item1_DB) + "\n");
+			os.writeBytes("" + (Item2_DB) + "\n");
+			os.writeBytes("" + (Item3_DB) + "\n");
+			os.writeBytes("" + (Item4_DB) + "\n");
 			
-			fw.write(gold_DB);
-			fw.write(exp_DB);
-			fw.write(Item1_DB);
-			fw.write(Item2_DB);
-			fw.write(Item3_DB);
-			fw.write(Item4_DB);
+
 			
-	
-			
-//			of.writeObject("" + (gold_DB) + "\n");
-//			of.writeObject("" + (exp_DB) + "\n");
-//			of.writeObject("" + (Item1_DB) + "\n");
-//			of.writeObject("" + (Item2_DB) + "\n");
-//			of.writeObject("" + (Item3_DB) + "\n");
-//			of.writeObject("" + (Item4_DB) + "\n");
-			
-			os.close();
-			is.close();
-			fw.close();
-			serviceClient.close();
+//			os.close();
+//			is.close();
+//			serviceClient.close();
 
 		} catch (IOException error) {
 			error.printStackTrace();
