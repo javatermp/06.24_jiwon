@@ -81,75 +81,75 @@ public class Body2 extends JPanel {
 		scroll.setSize(400, 450);
 		add(scroll);
 
-		exp = new JLabel("°æÇèÄ¡ : ");
+		exp = new JLabel("ê²½í—˜ì¹˜ : ");
 		exp.setBounds(500, 50, 130, 30);
-		exp.setForeground(Color.magenta); // ID ±ÛÀÚ»ö(ÇÎÅ©)
+		exp.setForeground(Color.magenta); // ID ê¸€ììƒ‰(í•‘í¬)
 		exp.setFont(new Font("Serif", Font.BOLD, 15));
 		add(exp);
 
-		gold = new JLabel("°ñµå : ");
+		gold = new JLabel("ê³¨ë“œ : ");
 		gold.setBounds(650, 50, 130, 30);
-		gold.setForeground(Color.ORANGE); // ID ±ÛÀÚ»ö(ÇÎÅ©)
+		gold.setForeground(Color.ORANGE); // ID ê¸€ììƒ‰(í•‘í¬)
 		gold.setFont(new Font("Serif", Font.BOLD, 15));
 		add(gold);
 
-		getitem = new JLabel("È¹µæ ¾ÆÀÌÅÛ : ");
+		getitem = new JLabel("íšë“ ì•„ì´í…œ : ");
 		getitem.setBounds(500, 100, 100, 30);
-		getitem.setForeground(Color.PINK); // ID ±ÛÀÚ»ö(ÇÎÅ©)
+		getitem.setForeground(Color.PINK); // ID ê¸€ììƒ‰(í•‘í¬)
 		getitem.setFont(new Font("Serif", Font.BOLD, 15));
 		add(getitem);
 
 		item1 = new JLabel("Item1 : 0");
 		item1.setBounds(500, 150, 100, 30);
-		item1.setForeground(Color.cyan); // ID ±ÛÀÚ»ö(ÇÎÅ©)
+		item1.setForeground(Color.cyan); // ID ê¸€ììƒ‰(í•‘í¬)
 		item1.setFont(new Font("Serif", Font.BOLD, 15));
 		add(item1);
 
 		item2 = new JLabel("Item2 : 0");
 		item2.setBounds(500, 200, 100, 30);
-		item2.setForeground(Color.cyan); // ID ±ÛÀÚ»ö(ÇÎÅ©)
+		item2.setForeground(Color.cyan); // ID ê¸€ììƒ‰(í•‘í¬)
 		item2.setFont(new Font("Serif", Font.BOLD, 15));
 		add(item2);
 
 		item3 = new JLabel("Item3 : 0");
 		item3.setBounds(500, 250, 100, 30);
-		item3.setForeground(Color.cyan); // ID ±ÛÀÚ»ö(ÇÎÅ©)
+		item3.setForeground(Color.cyan); // ID ê¸€ììƒ‰(í•‘í¬)
 		item3.setFont(new Font("Serif", Font.BOLD, 15));
 		add(item3);
 
 		item4 = new JLabel("Item4 : 0");
 		item4.setBounds(500, 300, 100, 30);
-		item4.setForeground(Color.cyan); // ID ±ÛÀÚ»ö(ÇÎÅ©)
+		item4.setForeground(Color.cyan); // ID ê¸€ììƒ‰(í•‘í¬)
 		item4.setFont(new Font("Serif", Font.BOLD, 15));
 		add(item4);
 
-		button = new JButton("°ÔÀÓÁ¾·á");
-		button.setSize(150, 75);
-		button.setLocation(300, 600);
+		button = new JButton("ê²Œì„ì¢…ë£Œ");
+		button.setSize(250, 90);
+		button.setLocation(250, 550);
 		button.addActionListener(new ChangeListener());
 		add(button);
 
-		map1 = new JButton("¸Ê1");
-		map1.setSize(70, 50);
+		map1 = new JButton("ë§µ1");
+		map1.setSize(80, 60);
 		map1.setLocation(500, 350);
 		map1.addActionListener(new Map1Listener());
 		add(map1);
 
-		map2 = new JButton("¸Ê2");
-		map2.setSize(70, 50);
-		map2.setLocation(600, 350);
+		map2 = new JButton("ë§µ2");
+		map2.setSize(80, 60);
+		map2.setLocation(650, 350);
 		map2.addActionListener(new Map2Listener());
 		add(map2);
 
-		map3 = new JButton("¸Ê3");
-		map3.setSize(70, 50);
+		map3 = new JButton("ë§µ3");
+		map3.setSize(80, 60);
 		map3.setLocation(500, 450);
 		map3.addActionListener(new Map3Listener());
 		add(map3);
 
-		map4 = new JButton("¸Ê4");
-		map4.setSize(70, 50);
-		map4.setLocation(600, 450);
+		map4 = new JButton("ë§µ4");
+		map4.setSize(80, 60);
+		map4.setLocation(650, 450);
 		map4.addActionListener(new Map4Listener());
 		add(map4);
 	}
@@ -176,8 +176,8 @@ public class Body2 extends JPanel {
 			judge2 = false;
 			judge3 = false;
 			judge4 = false;
-			gold.setText("°ñµå : 0");
-			exp.setText("°æÇèÄ¡ : 0");
+			gold.setText("ê³¨ë“œ : 0");
+			exp.setText("ê²½í—˜ì¹˜ : 0");
 			item1.setText("Item1 : 0");
 			item2.setText("Item2 : 0");
 			item3.setText("Item3 : 0");
@@ -250,7 +250,7 @@ class Map1 extends Thread {
 	}
 
 	public synchronized void run() {
-		Body2.addLog("Map1¿¡ ÀÔÀåÇÏ¿´½À´Ï´Ù");
+		Body2.addLog("Map1ì— ì…ì¥í•˜ì˜€ìŠµë‹ˆë‹¤");
 		while (Body2.num == 1) {
 			if (!Body2.judge1) {
 				Body2.judge1 = true;
@@ -270,14 +270,14 @@ class Map1 extends Thread {
 			Body2.current_gold += map1_gold;
 			Body2.current_exp += map1_exp;
 			if (r.nextInt(10) >= 2) {
-				Body2.addLog(map1_gold + "gold, " + map1_exp + "exp¸¦ È¹µæÇÏ¿´½À´Ï´Ù.");
+				Body2.addLog(map1_gold + "gold, " + map1_exp + "expë¥¼ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			} else {
 				item1++;
 				Body2.current_item1 = item1;
-				Body2.addLog(map1_gold + "gold, " + map1_exp + "exp, item1À» 1°³ È¹µæÇÏ¿´½À´Ï´Ù.");
+				Body2.addLog(map1_gold + "gold, " + map1_exp + "exp, item1ì„ 1ê°œ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
-			Body2.gold.setText("°ñµå : " + Body2.current_gold);
-			Body2.exp.setText("°æÇèÄ¡ : " + Body2.current_exp);
+			Body2.gold.setText("ê³¨ë“œ : " + Body2.current_gold);
+			Body2.exp.setText("ê²½í—˜ì¹˜ : " + Body2.current_exp);
 			Body2.item1.setText("Item1 : " + Body2.current_item1);
 			try {
 				sleep(1000);
@@ -298,7 +298,7 @@ class Map2 extends Thread {
 	}
 
 	public synchronized void run() {
-		Body2.addLog("Map2¿¡ ÀÔÀåÇÏ¿´½À´Ï´Ù");
+		Body2.addLog("Map2ì— ì…ì¥í•˜ì˜€ìŠµë‹ˆë‹¤");
 		while (Body2.num == 2) {
 			if (!Body2.judge2) {
 				Body2.judge1 = true;
@@ -318,14 +318,14 @@ class Map2 extends Thread {
 			Body2.current_gold += map2_gold;
 			Body2.current_exp += map2_exp;
 			if (r.nextInt(10) >= 2) {
-				Body2.addLog(map2_gold + "gold, " + map2_exp + "exp¸¦ È¹µæÇÏ¿´½À´Ï´Ù.");
+				Body2.addLog(map2_gold + "gold, " + map2_exp + "expë¥¼ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			} else {
 				item2++;
 				Body2.current_item2 = item2;
-				Body2.addLog(map2_gold + "gold, " + map2_exp + "exp, item2À» 1°³ È¹µæÇÏ¿´½À´Ï´Ù.");
+				Body2.addLog(map2_gold + "gold, " + map2_exp + "exp, item2ì„ 1ê°œ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
-			Body2.gold.setText("°ñµå : " + Body2.current_gold);
-			Body2.exp.setText("°æÇèÄ¡ : " + Body2.current_exp);
+			Body2.gold.setText("ê³¨ë“œ : " + Body2.current_gold);
+			Body2.exp.setText("ê²½í—˜ì¹˜ : " + Body2.current_exp);
 			Body2.item2.setText("Item2 : " + Body2.current_item2);
 			try {
 				sleep(1000);
@@ -346,7 +346,7 @@ class Map3 extends Thread {
 	}
 
 	public synchronized void run() {
-		Body2.addLog("Map3¿¡ ÀÔÀåÇÏ¿´½À´Ï´Ù");
+		Body2.addLog("Map3ì— ì…ì¥í•˜ì˜€ìŠµë‹ˆë‹¤");
 		while (Body2.num == 3) {
 			if (!Body2.judge3) {
 				Body2.judge1 = true;
@@ -366,14 +366,14 @@ class Map3 extends Thread {
 			Body2.current_gold += map3_gold;
 			Body2.current_exp += map3_exp;
 			if (r.nextInt(10) >= 2) {
-				Body2.addLog(map3_gold + "gold, " + map3_exp + "exp¸¦ È¹µæÇÏ¿´½À´Ï´Ù.");
+				Body2.addLog(map3_gold + "gold, " + map3_exp + "expë¥¼ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			} else {
 				item3++;
 				Body2.current_item3 = item3;
-				Body2.addLog(map3_gold + "gold, " + map3_exp + "exp, item3À» 1°³ È¹µæÇÏ¿´½À´Ï´Ù.");
+				Body2.addLog(map3_gold + "gold, " + map3_exp + "exp, item3ì„ 1ê°œ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
-			Body2.gold.setText("°ñµå : " + Body2.current_gold);
-			Body2.exp.setText("°æÇèÄ¡ : " + Body2.current_exp);
+			Body2.gold.setText("ê³¨ë“œ : " + Body2.current_gold);
+			Body2.exp.setText("ê²½í—˜ì¹˜ : " + Body2.current_exp);
 			Body2.item3.setText("Item3 : " + Body2.current_item3);
 			try {
 				sleep(1000);
@@ -394,7 +394,7 @@ class Map4 extends Thread {
 	}
 
 	public synchronized void run() {
-		Body2.addLog("Map4¿¡ ÀÔÀåÇÏ¿´½À´Ï´Ù");
+		Body2.addLog("Map4ì— ì…ì¥í•˜ì˜€ìŠµë‹ˆë‹¤");
 		while (Body2.num == 4) {
 			if (!Body2.judge4) {
 				Body2.judge1 = true;
@@ -414,14 +414,14 @@ class Map4 extends Thread {
 			Body2.current_gold += map4_gold;
 			Body2.current_exp += map4_exp;
 			if (r.nextInt(10) >= 2) {
-				Body2.addLog(map4_gold + "gold, " + map4_exp + "exp¸¦ È¹µæÇÏ¿´½À´Ï´Ù.");
+				Body2.addLog(map4_gold + "gold, " + map4_exp + "expë¥¼ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			} else {
 				item4++;
 				Body2.current_item4 = item4;
-				Body2.addLog(map4_gold + "gold, " + map4_exp + "exp, item4À» 1°³ È¹µæÇÏ¿´½À´Ï´Ù.");
+				Body2.addLog(map4_gold + "gold, " + map4_exp + "exp, item4ì„ 1ê°œ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
-			Body2.gold.setText("°ñµå : " + Body2.current_gold);
-			Body2.exp.setText("°æÇèÄ¡ : " + Body2.current_exp);
+			Body2.gold.setText("ê³¨ë“œ : " + Body2.current_gold);
+			Body2.exp.setText("ê²½í—˜ì¹˜ : " + Body2.current_exp);
 			Body2.item4.setText("Item4 : " + Body2.current_item4);
 			try {
 				sleep(1000);
