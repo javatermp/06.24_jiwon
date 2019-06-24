@@ -122,31 +122,35 @@ public class Body2 extends JPanel {
 		item4.setForeground(Color.cyan); // ID 글자색(핑크)
 		item4.setFont(new Font("Serif", Font.BOLD, 15));
 		add(item4);
-
+		ImageIcon normalIcon = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/gameover.gif");	
 		button = new JButton("게임종료");
 		button.setSize(250, 90);
 		button.setLocation(250, 550);
 		button.addActionListener(new ChangeListener());
 		add(button);
 
+		ImageIcon normalIcon1 = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/num1.png");
 		map1 = new JButton("맵1");
 		map1.setSize(80, 60);
 		map1.setLocation(500, 350);
 		map1.addActionListener(new Map1Listener());
 		add(map1);
 
+		ImageIcon normalIcon2 = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/num2.png");
 		map2 = new JButton("맵2");
 		map2.setSize(80, 60);
 		map2.setLocation(650, 350);
 		map2.addActionListener(new Map2Listener());
 		add(map2);
 
+		ImageIcon normalIcon3 = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/num3.png");
 		map3 = new JButton("맵3");
 		map3.setSize(80, 60);
 		map3.setLocation(500, 450);
 		map3.addActionListener(new Map3Listener());
 		add(map3);
 
+		ImageIcon normalIcon4 = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/num4.png");
 		map4 = new JButton("맵4");
 		map4.setSize(80, 60);
 		map4.setLocation(650, 450);
