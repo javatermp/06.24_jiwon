@@ -46,7 +46,10 @@ public class Body1 extends JPanel {
 
 		setPreferredSize(new Dimension(500, 300));
 		img = new ImageIcon("C:/Users/MELEE/eclipse-workspace/TP/src/TP/Background1.gif");
-
+		ImageIcon normalIcon = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/login1.png"); // 누르기전
+		ImageIcon rolloverIcon = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/login2.png"); // 눌렀을 때
+		ImageIcon pressedIcon = new ImageIcon("C:/Users/Gram11/eclipse-workspace/Termproject/src/login2.png");
+		
 		la1.setBounds(120, 40, 50, 20);
 		la1.setForeground(Color.pink);
 		la1.setFont(new Font("Serif", Font.BOLD, 15));
@@ -62,10 +65,11 @@ public class Body1 extends JPanel {
 		add(pf);
 
 		
-		button = new JButton("sign in");
-		button.setSize(100, 50);
-		button.setLocation(200, 200);
-	
+		button = new JButton("sign in", normalIcon);
+		button.setSize(130, 50);
+		button.setLocation(180, 200);
+		button.setPressedIcon(pressedIcon);
+		button.setRolloverIcon(rolloverIcon);
 		button.addActionListener(new ChangeListener());
 		add(button);
 		
